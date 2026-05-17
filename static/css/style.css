@@ -1,0 +1,683 @@
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+:root {
+    --roxo-escuro: #8830A2;
+    --roxo-medio: #7b1fa2;
+    --roxo-claro: #ce93d8;
+    --rosa-choque: #A23092;
+    --texto-escuro: #333333;
+    --branco: #ffffff;
+}
+
+/* =========================================================
+   RESET BÁSICO
+========================================================= */
+
+/* O asterisco (*) seleciona TODOS os elementos da página */
+* {
+    margin: 0; /* Remove as margens que os navegadores colocam por padrão */
+    padding: 0; /* Remove os espaçamentos internos padrão */
+
+    /* Garante que bordas não aumentem a largura que você definir para uma caixa */
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    /* Isso remove o espaço em volta do site todo */
+    margin: 0;
+    padding: 0;
+
+    /* Garante que o conteúdo não "vaze" para os lados */
+    overflow-x: hidden;
+
+    width: 100%;
+    background-color: #FFF4F4;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* =========================================================
+   TÍTULOS DE SEÇÃO
+========================================================= */
+
+h2 {
+
+    font-family: 'Pacifico', cursive;
+
+    font-size: 3rem; /* Tamanho da fonte bem grande */
+
+    text-align: center; /* Centraliza o texto */
+
+    margin-bottom: 30px; /* Empurra o que estiver abaixo do título para baixo */
+
+    color: var(--roxo-medio); /* Usa nossa variável roxa */
+}
+
+/* =========================================================
+   O CONTAINER
+========================================================= */
+
+/* Esta classe é o grande segredo para o site não ficar colado nas bordas do monitor */
+.container {
+
+    max-width: 1200px; /* O site nunca vai passar de 1200 pixels de largura */
+
+    margin: 0 auto; /* O 'auto' nas laterais força a caixa a ficar exatamente no meio da tela */
+
+    padding: 0 20px; /* Cria uma margem de segurança de 20px nas laterais para telas pequenas */
+}
+
+/* =========================================================
+   CABEÇALHO E MENU
+========================================================= */
+
+header {
+    width: 100%;
+    background-color: var(--roxo-escuro);
+    padding: 15px 0; /* Espaço em cima e embaixo */
+     position: fixed;
+}
+
+/* O Flexbox (display: flex) é a melhor ferramenta para colocar coisas lado a lado */
+.header-container {
+
+    display: flex;
+
+    justify-content: space-between; /* Joga a logo para a esquerda e o menu para a direita extrema */
+
+    align-items: center; /* Alinha ambos no meio exato da linha horizontal */
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+/* Seleciona o container da logo */
+.logo {
+
+    display: flex;
+    align-items: center;
+    gap: 19px;
+}
+
+/* Controla especificamente o tamanho da imagem da logo */
+.logo img {
+
+    height: 40px; /* Define uma altura fixa para a logo não esticar o cabeçalho */
+
+    width: auto; /* Mantém a proporção da largura automática */
+
+    object-fit: contain; /* Garante que a imagem não fique deformada */
+}
+
+/* Ajusta o tamanho do texto ao lado da logo para acompanhar o novo tamanho */
+.logo span {
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    line-height: 1.1;
+
+    color: var(--branco);
+}
+
+/* =========================================================
+   MENU
+========================================================= */
+
+nav ul {
+
+    list-style: none; /* Tira as "bolinhas" padrão das listas do HTML */
+    display: flex; /* Coloca os links do menu lado a lado */
+    gap: 60px;
+    font-size: 20px;
+}
+
+nav a {
+
+    color: var(--branco);
+    text-decoration: none; /* Tira o sublinhado azul padrão dos links */
+    font-weight: 600; /* Deixa a fonte mais gordinha/negrito */
+    transition: 0.3s ease;
+}
+
+/* O :hover diz o que acontece quando o usuário passa o mouse por cima do link */
+nav a:hover {
+
+    color: var(--roxo-claro);
+}
+
+/* =========================================================
+   BOTÃO
+========================================================= */
+
+.btn {
+
+    display: inline-block;
+
+    background-color: var(--rosa-choque);
+
+    color: var(--branco);
+
+    padding: 12px 25px; /* Espaço interno do botão (altura, largura) */
+
+    text-decoration: none; /* Tira o sublinhado */
+
+    border-radius: 25px; /* Arredonda bastante as bordas formando uma "pílula" */
+
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+
+    transform: scale(1.03);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    background: #F7EFEF;
+
+    overflow: hidden;
+
+    width: 100%;
+}
+
+.hero-container {
+
+    width: 100%;
+
+    min-height: 90vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-left: 5%;
+
+    gap: 40px;
+}
+
+/* TEXTO */
+.hero-text {
+
+    flex: 1;
+
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    line-height: 1.05;
+    margin: 10px 0;
+    color: #222;
+}
+
+.hero-text p {
+
+    font-size: clamp(1rem, 1.3vw, 1.3rem);
+
+    line-height: 1.5;
+
+    margin-bottom: 35px;
+
+    max-width: 500px;
+}
+
+/* BADGE */
+.badge {
+    margin-bottom: -20px;
+    background: #A92FA5;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+/* IMAGEM */
+.hero-image {
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    overflow: hidden;
+}
+
+.imagem-ondulada {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    height: 90vh;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 55% 0 0 45% / 50% 0 0 50%;
+}
+
+/* =========================================================
+   SEÇÃO SOBRE NÓS
+========================================================= */
+
+.sobre-container {
+
+    background-color: #FFF4F4;
+
+    display: flex; /* Coloca lado a lado */
+
+    align-items: center; /* Alinha pelo meio verticalmente */
+
+    justify-content: space-between;
+
+    gap: 50px; /* Espaço entre imagem e texto */
+
+    padding: 80px 0; /* Espaço em cima e embaixo da seção */
+}
+
+.sobre-image {
+    flex: 1;                /* Ocupa metade do espaço */
+}
+
+.sobre-image img {
+    margin-top: -135px;
+    margin-bottom: -80px;
+    width: 120%;            /* Ajusta a imagem ao tamanho da coluna */
+    border-radius: 20px;    /* Borda arredondada */
+    display: block;
+}
+
+
+.sobre-text {
+
+    flex: 1; /* Ocupa a outra metade */
+}
+
+.sobre-text h2 {
+
+    font-size: 50px;
+
+    text-align: left; /* Alinha o título à esquerda nesta seção */
+
+    margin-bottom: 20px;
+}
+
+/* =========================================================
+   ISSO AQUI É A LINHA ROXA QUE DIVIDE AS PÁGINAS
+========================================================= */
+
+.divisor {
+
+    width: 100%;
+
+    height: 80px; /* Espessura da linha */
+
+    background-color: var(--roxo-escuro);
+
+    margin: 0; /* Garante que não tenha espaço em volta */
+}
+
+/* =========================================================
+   PARTE SOBRE AS ONGS
+========================================================= */
+
+/* Container que permite o scroll lateral */
+.ongs-scroll-container {
+
+    display: flex;
+
+    gap: 30px;
+
+    overflow-x: auto; /* Ativa o scroll horizontal */
+
+    padding: 20px 0;
+
+    /* Mágica do Scroll Snap */
+    scroll-snap-type: x mandatory; /* Força o scroll a "parar" no card */
+
+    scroll-behavior: smooth; /* Deixa o deslize suave */
+
+    /* Esconde a barra de scroll feia no Chrome/Safari */
+    scrollbar-width: none;
+}
+
+.ongs-scroll-container::-webkit-scrollbar {
+
+    display: none; /* Esconde a barra no Chrome */
+}
+
+/* O Card Individual */
+.ong-card {
+
+    min-width: 350px; /* Largura fixa para cada card */
+
+    flex-shrink: 0;
+
+    text-align: center;
+
+    /* Faz o card "grudar" na tela ao scrollar */
+    scroll-snap-align: center;
+}
+
+.ong-box {
+
+    width: 100%;
+
+    height: 400px;
+
+    background-color: var(--roxo-claro);
+
+    border-radius: 20px;
+
+    margin-bottom: 15px;
+
+    overflow: hidden;
+
+    transition: transform 0.3s ease;
+}
+
+.ong-box img {
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+}
+
+/* Efeito de destaque quando passa o mouse */
+.ong-card:hover .ong-box {
+
+    transform: scale(1.02);
+}
+
+
+
+/*==========================================================
+           DADOS
+===========================================================*/
+
+.dados-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.dado-item{
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.dado-item img{
+    width: 100%;
+    max-width: 300px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-container {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 40px 20px;
+    }
+
+    .hero-text {
+
+        max-width: 100%;
+    }
+
+    .hero-text p {
+
+        max-width: 100%;
+    }
+
+    .hero-image {
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .imagem-ondulada {
+
+        width: 100%;
+
+        height: 450px;
+
+        border-radius: 40px;
+    }
+
+    .sobre-container {
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .sobre-text h2 {
+
+        text-align: center;
+    }
+
+    .contato-wrapper {
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .contato-person {
+
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .header-container {
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    nav ul {
+
+        gap: 20px;
+
+        font-size: 16px;
+
+    flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .ong-card {
+
+        min-width: 280px;
+    }
+
+    .contato h2 {
+
+        font-size: 3rem;
+    }
+}
+
+
+
+/* =========================================================
+   CONTATO
+========================================================= */
+
+.contato {
+
+    padding: 60px 0 0 0; /* remove espaço embaixo */
+
+    background-color: #FFF4F4;
+
+    overflow: hidden;
+}
+
+.contato-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    position: relative;
+}
+
+/* CELULAR */
+.contato-phone {
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.contato-phone img {
+
+    max-height: 450px;
+
+    width: auto;
+}
+
+/* TEXTOS */
+.contato-info {
+
+    flex: 1.5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+}
+
+.contato-item p {
+
+    color: var(--roxo-medio);
+
+    font-size: 1.1rem;
+
+    line-height: 1.5;
+}
+
+.contato-item strong {
+
+    color: var(--rosa-choque);
+
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+/* FOTO DA DIREITA */
+.contato-person {
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: flex-end;
+}
+
+.contato-person img {
+
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin-bottom: -80px;
+}
+
+/* TÍTULO */
+.contato h2 {
+
+    margin-bottom: 50px;
+
+    font-size: 4rem;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    background-color: var(--roxo-medio);
+
+    padding: 30px 20px;
+
+    margin-top: 0;
+
+    position: relative;
+
+    z-index: 999;
+}
+
+footer p {
+
+    color: white;
+
+    font-size: 16px;
+}
+
+/* MENU FIXO */
+header {
+
+    width: 100%;
+
+    background-color: var(--roxo-escuro);
+
+    padding: 15px 0;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 1000;
+}
